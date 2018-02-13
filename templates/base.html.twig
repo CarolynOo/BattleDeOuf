@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}BATTLE DE OUF{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Press+Start+2P" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('/build/main.css')}}">
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        <div class="container">
+            <h1> BATTLE DE OUF</h1>
+            <div class="test"></div>
+            <main class="main">
+                <div class="composition">
+                    <div class="composition__title">
+                        <h2>Composition</h2>
+                    </div>
+                    <div class="composition__army-section">
+                        <div class="composition__army-1">
+                            <div class="composition__army-title">
+                                <h3>Armée 1</h3>
+                                <div class="numbers">
+
+                                    <div class="numbers__soldiers-count">
+                                        <p> Guerriers</p> <p>{{ army1.warriorCount }}</p> 
+                                    </div>
+
+                                    <div class="numbers__soldiers-count">
+                                        <p> Archers</p> <p>{{ army1.archerCount }}</p>
+                                    </div>
+                                    <div class="numbers__soldiers-count">
+                                        <p>Chevaliers</p><p>{{ army1.knightCount}}</p> 
+                                    </div>
+
+                                    <div class="numbers__soldiers-total">
+                                        <p>Total </p>
+                                        <p> {{ army1.getTotalCharacterList() }} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="composition__army-2">
+                         <div class="composition__army-title">
+                            <h3>Armée 2</h3>
+                            <div class="numbers">
+                                <div class="numbers__soldiers-count">
+                                    <p> Guerriers</p> <p>{{ army2.warriorCount}}</p> 
+                                </div>
+                                <div class="numbers__soldiers-count">
+                                    <p> Archers</p> <p>{{ army2.archerCount }}</p>
+                                </div>
+                                <div class="numbers__soldiers-count">
+                                    <p>Chevaliers</p><p>{{ army2.knightCount }}</p> 
+                                </div>
+                                <div class="numbers__soldiers-total">
+                                 <p>Total</p>
+                                 <p> {{ army2.getTotalCharacterList()}} </p>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+
+         <div class="combat">
+            <h2 class="combat__title"> Combat</h2>
+            <div class="combat__section">
+                <div class="combat__section-start--title">
+                    <h3>START BATTLE</h3>
+                  <h3 class="combat__section-start">{{startBattle}}</h3>
+                </div>
+                <div class="combat__section-winner--title">
+                    <h3>WINNER</h3>
+                    <h3 class="combat__section-winner">{{winner}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+
+
+{% endblock %}
+
+<script src="{{asset('js/vendor/jquery-3.3.1.min.js')}}"></script>
+
+<script src="{{asset('js/scripts/app.js')}}"></script>
+
+</body>
+</html>
