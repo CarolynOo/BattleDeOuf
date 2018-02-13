@@ -36,7 +36,7 @@ class BattleGenerator
 	
 	public function fight(Army $army1, Army $army2)
 	{
-
+/*
 		$damage1 = $army1->getTotalDamage();
 		$lifepoint1 = $army1->getTotalHp();
 		
@@ -78,11 +78,15 @@ class BattleGenerator
 			$winner= 'Armée 2';
 		}
 
+
 		
 
 		return $winner;
+		*/
 
-}
+		return $army1->getTotalDamage() > $army2->getTotalDamage() ? $army1 : $army2;
+
+	}
 
 }
 

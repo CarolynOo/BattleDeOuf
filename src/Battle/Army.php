@@ -6,13 +6,17 @@ namespace App\Battle;
 
 class Army 
 {
+
 	protected $charactersList = [];
 	protected $archerCount;
 	protected $warriorCount;
 	protected $knightCount;
+	protected $name;
 
-	public function __construct(array $warriors, array $archers, array $knights) 
+	public function __construct(string $name, array $warriors, array $archers, array $knights) 
 	{
+
+		$this->name = $name;
 		$this->charactersList = array_merge(
 			$warriors, $archers, $knights
 		);
@@ -90,5 +94,9 @@ class Army
 	public function setKnightCount($param){
 
 		$this->knightCount=$param;
+	}
+
+	public function getName() {
+		return $this->name;
 	}
 }

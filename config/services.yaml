@@ -23,5 +23,39 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+
+    App\Battle\ArcherFactory:
+        class: App\Battle\ArcherFactory
+        public: true
+
+    App\Battle\GuerrierFactory:
+        class: App\Battle\GuerrierFactory
+        public: true
+
+    App\Battle\ChevalierFactory:
+        class: App\Battle\ChevalierFactory
+        public: true
+
+    App\Battle\ArmyFactory:
+        class: App\Battle\ArmyFactory
+        arguments: ['@App\Battle\ArcherFactory', '@App\Battle\GuerrierFactory', '@App\Battle\ChevalierFactory']
+        public: true
+
+    fightGen:
+        class: App\Battle\BattleGenerator
+        public: true
+
+    army1:
+        class: App\Battle\ArmyCollection
+        factory: ['@App\Battle\ArmyFactory', create]
+        arguments: ['Armée 1']
+        public: true
+
+    army2:
+        class: App\Battle\ArmyCollection
+        factory: ['@App\Battle\ArmyFactory', create]
+        arguments: ['Armée 2']
+        public: true
+            
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
